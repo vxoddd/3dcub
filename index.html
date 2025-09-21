@@ -154,4 +154,532 @@
         }
         
         .btn-accent {
-            background-color: var
+            background-color: var(--accent);
+        }
+        
+        .btn-accent:hover {
+            background-color: #c0392b;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin: 3rem 0 2rem;
+            color: var(--secondary);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        .product-image {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .product-info {
+            padding: 1rem;
+        }
+        
+        .product-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .product-price {
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .product-description {
+            margin-bottom: 1rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .color-selector {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .color-option {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        
+        .color-option.active {
+            border-color: var(--dark);
+        }
+        
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .qty-btn {
+            background-color: var(--light);
+            border: none;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .qty-input {
+            width: 40px;
+            height: 30px;
+            text-align: center;
+            border: 1px solid #ddd;
+            margin: 0 0.5rem;
+        }
+        
+        .about {
+            background-color: var(--light);
+            padding: 3rem 1rem;
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .contact {
+            padding: 3rem 1rem;
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--secondary);
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">3D<span>Plast</span></a>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul>
+                    <li><a href="#">Главная</a></li>
+                    <li><a href="#products">Товары</a></li>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Уникальные изделия из пластика на 3D принтере</h1>
+            <p>Мы создаем качественные и доступные изделия по индивидуальным заказам и готовым моделям. От сувениров до функциональных деталей.</p>
+            <a href="#products" class="btn">Смотреть каталог</a>
+        </div>
+    </section>
+
+    <section id="products" class="container">
+        <h2 class="section-title">Наши товары</h2>
+        <div class="products">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1565271914425-1c38ecb58f89?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Сувениры" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Сувениры и фигурки</h3>
+                    <p class="product-price">от 500 руб.</p>
+                    <p class="product-description">Индивидуальные фигурки, статуэтки и сувениры на заказ.</p>
+                    
+                    <div class="color-selector">
+                        <span class="color-option active" style="background-color: #ff0000;" data-color="red"></span>
+                        <span class="color-option" style="background-color: #00ff00;" data-color="green"></span>
+                        <span class="color-option" style="background-color: #0000ff;" data-color="blue"></span>
+                    </div>
+                    
+                    <div class="quantity-selector">
+                        <button class="qty-btn minus">-</button>
+                        <input type="number" value="1" min="1" class="qty-input">
+                        <button class="qty-btn plus">+</button>
+                    </div>
+                    
+                    <button class="btn add-to-cart">В корзину</button>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1598301257982-0cf01499abb2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Аксессуары" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Аксессуары</h3>
+                    <p class="product-price">от 300 руб.</p>
+                    <p class="product-description">Чехлы, подставки, держатели и другие полезные мелочи.</p>
+                    
+                    <div class="color-selector">
+                        <span class="color-option active" style="background-color: #ffff00;" data-color="yellow"></span>
+                        <span class="color-option" style="background-color: #ff00ff;" data-color="pink"></span>
+                        <span class="color-option" style="background-color: #00ffff;" data-color="cyan"></span>
+                    </div>
+                    
+                    <div class="quantity-selector">
+                        <button class="qty-btn minus">-</button>
+                        <input type="number" value="1" min="1" class="qty-input">
+                        <button class="qty-btn plus">+</button>
+                    </div>
+                    
+                    <button class="btn add-to-cart">В корзину</button>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Технические детали" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Технические детали</h3>
+                    <p class="product-price">от 800 руб.</p>
+                    <p class="product-description">Функциональные детали для техники, механизмов и приборов.</p>
+                    
+                    <div class="color-selector">
+                        <span class="color-option active" style="background-color: #888888;" data-color="gray"></span>
+                        <span class="color-option" style="background-color: #000000;" data-color="black"></span>
+                        <span class="color-option" style="background-color: #ffffff; border: 1px solid #000;" data-color="white"></span>
+                    </div>
+                    
+                    <div class="quantity-selector">
+                        <button class="qty-btn minus">-</button>
+                        <input type="number" value="1" min="1" class="qty-input">
+                        <button class="qty-btn plus">+</button>
+                    </div>
+                    
+                    <button class="btn add-to-cart">В корзину</button>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Интерьер" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Элементы интерьера</h3>
+                    <p class="product-price">от 1000 руб.</p>
+                    <p class="product-description">Уникальные детали декора для вашего дома или офиса.</p>
+                    
+                    <div class="color-selector">
+                        <span class="color-option active" style="background-color: #964b00;" data-color="brown"></span>
+                        <span class="color-option" style="background-color: #ffa500;" data-color="orange"></span>
+                        <span class="color-option" style="background-color: #800080;" data-color="purple"></span>
+                    </div>
+                    
+                    <div class="quantity-selector">
+                        <button class="qty-btn minus">-</button>
+                        <input type="number" value="1" min="1" class="qty-input">
+                        <button class="qty-btn plus">+</button>
+                    </div>
+                    
+                    <button class="btn add-to-cart">В корзину</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">О нашей компании</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Мы - команда энтузиастов 3D-печати, которая превратила хобби в профессиональное дело. Начав с небольшого принтера в гараже, мы выросли в полноценную мастерскую с современным оборудованием.</p>
+                    <p>Используем только качественные материалы: PLA, ABS, PETG и другие виды пластиков. Каждое изделие проходит контроль качества перед отправкой клиенту.</p>
+                    <p>Мы принимаем индивидуальные заказы и готовы воплотить в жизнь ваши идеи - от простых брелоков до сложных технических деталей.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Наша мастерская">
+                </div>
+            </div>
+            
+            <h3 class="section-title">Наши преимущества</h3>
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Быстрое производство</h3>
+                    <p>Большинство заказов выполняем в течение 1-3 дней</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Контроль качества</h3>
+                    <p>Каждое изделие проверяется перед отправкой</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-sync-alt"></i>
+                    <h3>Разные материалы</h3>
+                    <p>Работаем с PLA, ABS, PETG, нейлоном и другими материалами</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-palette"></i>
+                    <h3>Разнообразие цветов</h3>
+                    <p>Широкая палитра цветов для реализации ваших идей</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Свяжитесь с нами</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Ваше имя</label>
+                    <input type="text" id="name" placeholder="Иван Иванов" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="example@mail.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Сообщение</label>
+                    <textarea id="message" rows="5" placeholder="Расскажите о вашем проекте или задайте вопрос" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-accent">Отправить сообщение</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>3DPlast</h3>
+                    <p>Качественные изделия из пластика на 3D принтере</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p>Email: info@3dplast.ru</p>
+                    <p>Телефон: +7 (999) 123-45-67</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Мы в соцсетях</h3>
+                    <p>VK | Telegram | Instagram</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 3DPlast. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Простая функциональность корзины
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const countElement = document.querySelector('.cart-count');
+                let count = parseInt(countElement.textContent);
+                count++;
+                countElement.textContent = count;
+                
+                // Можно добавить анимацию
+                this.textContent = 'Добавлено!';
+                setTimeout(() => {
+                    this.textContent = 'В корзину';
+                }, 1500);
+            });
+        });
+        
+        // Обработка формы
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
+            this.reset();
+        });
+        
+        // Выбор цвета
+        document.querySelectorAll('.color-option').forEach(option => {
+            option.addEventListener('click', function() {
+                this.parentElement.querySelectorAll('.color-option').forEach(opt => {
+                    opt.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+        
+        // Управление количеством
+        document.querySelectorAll('.qty-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('.qty-input');
+                let value = parseInt(input.value);
+                
+                if (this.classList.contains('minus')) {
+                    if (value > 1) {
+                        input.value = value - 1;
+                    }
+                } else {
+                    input.value = value + 1;
+                }
+            });
+        });
+        
+        // Мобильное меню
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
