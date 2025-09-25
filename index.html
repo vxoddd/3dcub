@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3DCUB - изделия из пластика на 3D принтере</title>
+    <title>3DCub - уникальные изделия из пластика на 3D принтере</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #3498db;
-            --secondary: #2c3e50;
-            --accent: #e74c3c;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
+            --primary: #ff6b35;
+            --secondary: #2a2d3e;
+            --accent: #00c2cb;
+            --light: #f8f9fa;
+            --dark: #1e2029;
+            --success: #28a745;
         }
         
         * {
@@ -22,7 +23,7 @@
         }
         
         body {
-            background-color: #f9f9f9;
+            background-color: #ffffff;
             color: #333;
             line-height: 1.6;
         }
@@ -34,7 +35,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
         }
         
         .container {
@@ -59,7 +60,7 @@
         }
         
         .logo span {
-            color: var(--primary);
+            color: var(--accent);
         }
         
         nav ul {
@@ -75,10 +76,11 @@
             color: white;
             text-decoration: none;
             transition: color 0.3s;
+            font-weight: 500;
         }
         
         nav ul li a:hover {
-            color: var(--primary);
+            color: var(--accent);
         }
         
         .mobile-menu-btn {
@@ -101,6 +103,11 @@
             justify-content: center;
             cursor: pointer;
             position: relative;
+            transition: transform 0.3s;
+        }
+        
+        .cart-icon:hover {
+            transform: scale(1.1);
         }
         
         .cart-count {
@@ -116,57 +123,66 @@
             align-items: center;
             justify-content: center;
             font-size: 0.8rem;
+            font-weight: bold;
         }
         
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            background: linear-gradient(rgba(42, 45, 62, 0.8), rgba(42, 45, 62, 0.9)), url('https://images.unsplash.com/photo-1581093458799-10452b5e3e6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
             color: white;
             padding: 5rem 1rem;
             text-align: center;
         }
         
         .hero h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
         
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             max-width: 800px;
             margin: 0 auto 2rem;
+            font-weight: 300;
         }
         
         .btn {
             display: inline-block;
             background-color: var(--primary);
             color: white;
-            padding: 0.8rem 1.5rem;
+            padding: 0.9rem 2rem;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(255, 107, 53, 0.3);
         }
         
         .btn:hover {
-            background-color: #2980b9;
+            background-color: #e55a2b;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(255, 107, 53, 0.4);
         }
         
         .btn-accent {
             background-color: var(--accent);
+            box-shadow: 0 4px 10px rgba(0, 194, 203, 0.3);
         }
         
         .btn-accent:hover {
-            background-color: #c0392b;
+            background-color: #00aab3;
+            box-shadow: 0 6px 15px rgba(0, 194, 203, 0.4);
         }
         
         .section-title {
             text-align: center;
-            margin: 3rem 0 2rem;
+            margin: 4rem 0 3rem;
             color: var(--secondary);
             position: relative;
-            padding-bottom: 0.5rem;
+            padding-bottom: 0.8rem;
+            font-size: 2.2rem;
         }
         
         .section-title::after {
@@ -175,57 +191,66 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--primary);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            border-radius: 2px;
         }
         
         .products {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2.5rem;
             margin: 2rem 0;
         }
         
         .product-card {
             background-color: white;
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
+            border: 1px solid #f0f0f0;
         }
         
         .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
         }
         
         .product-image {
-            height: 200px;
+            height: 220px;
             width: 100%;
             object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.05);
         }
         
         .product-info {
-            padding: 1rem;
+            padding: 1.5rem;
         }
         
         .product-title {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 0.5rem;
+            color: var(--secondary);
         }
         
         .product-price {
             font-weight: bold;
-            color: var(--accent);
+            color: var(--primary);
             margin-bottom: 1rem;
+            font-size: 1.2rem;
         }
         
         .product-description {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             color: #666;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
         
         .color-selector {
@@ -235,53 +260,67 @@
         }
         
         .color-option {
-            width: 20px;
-            height: 20px;
+            width: 25px;
+            height: 25px;
             border-radius: 50%;
             cursor: pointer;
             border: 2px solid transparent;
+            transition: transform 0.2s;
+        }
+        
+        .color-option:hover {
+            transform: scale(1.1);
         }
         
         .color-option.active {
             border-color: var(--dark);
+            transform: scale(1.1);
         }
         
         .quantity-selector {
             display: flex;
             align-items: center;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
         
         .qty-btn {
             background-color: var(--light);
             border: none;
-            width: 30px;
-            height: 30px;
+            width: 35px;
+            height: 35px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+        
+        .qty-btn:hover {
+            background-color: #e9ecef;
         }
         
         .qty-input {
-            width: 40px;
-            height: 30px;
+            width: 50px;
+            height: 35px;
             text-align: center;
             border: 1px solid #ddd;
             margin: 0 0.5rem;
+            border-radius: 5px;
+            font-weight: bold;
         }
         
         .about {
             background-color: var(--light);
-            padding: 3rem 1rem;
+            padding: 4rem 1rem;
         }
         
         .about-content {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
-            gap: 2rem;
+            gap: 3rem;
         }
         
         .about-text {
@@ -289,11 +328,18 @@
             min-width: 300px;
         }
         
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
         .about-image {
             flex: 1;
             min-width: 300px;
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
         
         .about-image img {
@@ -305,26 +351,37 @@
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            gap: 2.5rem;
             margin: 3rem 0;
         }
         
         .feature {
             text-align: center;
-            padding: 1.5rem;
+            padding: 2rem 1.5rem;
             background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
         }
         
         .feature i {
-            font-size: 2.5rem;
-            color: var(--primary);
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature h3 {
+            color: var(--secondary);
             margin-bottom: 1rem;
+            font-size: 1.3rem;
         }
         
         .contact {
-            padding: 3rem 1rem;
+            padding: 4rem 1rem;
             background-color: var(--secondary);
             color: white;
         }
@@ -335,27 +392,86 @@
         }
         
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
         }
         
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.7rem;
+            font-weight: 500;
         }
         
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 0.8rem;
+            padding: 1rem;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: box-shadow 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 194, 203, 0.3);
+        }
+        
+        .phone-numbers {
+            text-align: center;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), #ff8c5a);
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+        }
+        
+        .phone-numbers h3 {
+            margin-bottom: 1rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .phone-number {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary);
+            padding: 0.7rem 1.5rem;
+            margin: 0.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .phone-number:hover {
+            transform: scale(1.05);
+        }
+        
+        .email-contact {
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+        
+        .email-contact a {
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .email-contact a:hover {
+            color: #00aab3;
+            text-decoration: underline;
         }
         
         footer {
             background-color: var(--dark);
             color: white;
             text-align: center;
-            padding: 2rem 1rem;
+            padding: 3rem 1rem;
         }
         
         .footer-content {
@@ -371,114 +487,15 @@
             min-width: 250px;
         }
         
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+        
         .footer-bottom {
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 1rem;
-        }
-        
-        /* Новые стили для модальных окон */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .modal-content {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            max-width: 500px;
-            width: 90%;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-        }
-        
-        .close-modal {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 1.5rem;
-            cursor: pointer;
-            background: none;
-            border: none;
-        }
-        
-        .cart-items {
-            margin: 1rem 0;
-        }
-        
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .cart-total {
-            font-weight: bold;
-            text-align: right;
-            margin: 1rem 0;
-        }
-        
-        .notification {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: var(--primary);
-            color: white;
-            padding: 1rem;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transform: translateY(100px);
-            opacity: 0;
-            transition: transform 0.3s, opacity 0.3s;
-            z-index: 1000;
-        }
-        
-        .notification.show {
-            transform: translateY(0);
-            opacity: 1;
-        }
-        
-        .filter-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .filter-btn {
-            background-color: var(--light);
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        .filter-btn.active, .filter-btn:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-        
-        .product-tag {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: var(--accent);
-            color: white;
-            padding: 0.3rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
+            padding-top: 1.5rem;
+            margin-top: 1.5rem;
         }
         
         @media (max-width: 768px) {
@@ -495,6 +512,7 @@
                 background-color: var(--secondary);
                 flex-direction: column;
                 padding: 1rem;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
             }
             
             nav ul.show {
@@ -502,19 +520,23 @@
             }
             
             nav ul li {
-                margin: 0.5rem 0;
+                margin: 0.7rem 0;
             }
             
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             
             .hero p {
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
             
             .about-content {
                 flex-direction: column;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
             }
         }
     </style>
@@ -522,7 +544,7 @@
 <body>
     <header>
         <div class="container header-content">
-            <a href="#" class="logo">3D<span>Plast</span></a>
+            <a href="#" class="logo">3D<span>Cub</span></a>
             
             <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
@@ -536,7 +558,7 @@
                     <li><a href="#contact">Контакты</a></li>
                 </ul>
             </nav>
-            <div class="cart-icon" id="cart-button">
+            <div class="cart-icon">
                 <i class="fas fa-shopping-cart"></i>
                 <span class="cart-count">0</span>
             </div>
@@ -545,83 +567,26 @@
 
     <section class="hero">
         <div class="container">
-            <h1>Уникальные изделия из пластика на 3D принтере</h1>
-            <p>Мы создаем качественные и доступные изделия по индивидуальным заказам и готовым моделям. От сувениров до функциональных деталей.</p>
+            <h1>3DCub - уникальные изделия из пластика на 3D принтере</h1>
+            <p>Создаем яркие, функциональные и необычные изделия: от подвижных игрушек до светильников и автодеталей</p>
             <a href="#products" class="btn">Смотреть каталог</a>
         </div>
     </section>
 
     <section id="products" class="container">
-        <h2 class="section-title">Наши товары</h2>
-        
-        <div class="filter-buttons">
-            <button class="filter-btn active" data-filter="all">Все товары</button>
-            <button class="filter-btn" data-filter="souvenirs">Сувениры</button>
-            <button class="filter-btn" data-filter="accessories">Аксессуары</button>
-            <button class="filter-btn" data-filter="technical">Технические детали</button>
-            <button class="filter-btn" data-filter="interior">Интерьер</button>
-        </div>
-        
+        <h2 class="section-title">Наши изделия</h2>
         <div class="products">
-            <div class="product-card" data-category="souvenirs">
-                <span class="product-tag">Популярное</span>
-                <img src="https://images.unsplash.com/photo-1565271914425-1c38ecb58f89?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Сувениры" class="product-image">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1598301257982-0cf01499abb2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Подвижные игрушки" class="product-image">
                 <div class="product-info">
-                    <h3 class="product-title">Сувениры и фигурки</h3>
-                    <p class="product-price">от 500 руб.</p>
-                    <p class="product-description">Индивидуальные фигурки, статуэтки и сувениры на заказ.</p>
-                    
-                    <div class="color-selector">
-                        <span class="color-option active" style="background-color: #ff0000;" data-color="red"></span>
-                        <span class="color-option" style="background-color: #00ff00;" data-color="green"></span>
-                        <span class="color-option" style="background-color: #0000ff;" data-color="blue"></span>
-                    </div>
-                    
-                    <div class="quantity-selector">
-                        <button class="qty-btn minus">-</button>
-                        <input type="number" value="1" min="1" class="qty-input">
-                        <button class="qty-btn plus">+</button>
-                    </div>
-                    
-                    <button class="btn add-to-cart" data-product="Сувениры и фигурки" data-price="500">В корзину</button>
-                </div>
-            </div>
-            
-            <div class="product-card" data-category="accessories">
-                <img src="https://images.unsplash.com/photo-1598301257982-0cf01499abb2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Аксессуары" class="product-image">
-                <div class="product-info">
-                    <h3 class="product-title">Аксессуары</h3>
-                    <p class="product-price">от 300 руб.</p>
-                    <p class="product-description">Чехлы, подставки, держатели и другие полезные мелочи.</p>
-                    
-                    <div class="color-selector">
-                        <span class="color-option active" style="background-color: #ffff00;" data-color="yellow"></span>
-                        <span class="color-option" style="background-color: #ff00ff;" data-color="pink"></span>
-                        <span class="color-option" style="background-color: #00ffff;" data-color="cyan"></span>
-                    </div>
-                    
-                    <div class="quantity-selector">
-                        <button class="qty-btn minus">-</button>
-                        <input type="number" value="1" min="1" class="qty-input">
-                        <button class="qty-btn plus">+</button>
-                    </div>
-                    
-                    <button class="btn add-to-cart" data-product="Аксессуары" data-price="300">В корзину</button>
-                </div>
-            </div>
-            
-            <div class="product-card" data-category="technical">
-                <span class="product-tag">Новинка</span>
-                <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Технические детали" class="product-image">
-                <div class="product-info">
-                    <h3 class="product-title">Технические детали</h3>
+                    <h3 class="product-title">Подвижные игрушки</h3>
                     <p class="product-price">от 800 руб.</p>
-                    <p class="product-description">Функциональные детали для техники, механизмов и приборов.</p>
+                    <p class="product-description">Уникальные механические игрушки с подвижными элементами. Отличный подарок для детей и взрослых.</p>
                     
                     <div class="color-selector">
-                        <span class="color-option active" style="background-color: #888888;" data-color="gray"></span>
-                        <span class="color-option" style="background-color: #000000;" data-color="black"></span>
-                        <span class="color-option" style="background-color: #ffffff; border: 1px solid #000;" data-color="white"></span>
+                        <span class="color-option active" style="background-color: #ff6b35;" data-color="orange"></span>
+                        <span class="color-option" style="background-color: #00c2cb;" data-color="cyan"></span>
+                        <span class="color-option" style="background-color: #ff4757;" data-color="red"></span>
                     </div>
                     
                     <div class="quantity-selector">
@@ -630,21 +595,21 @@
                         <button class="qty-btn plus">+</button>
                     </div>
                     
-                    <button class="btn add-to-cart" data-product="Технические детали" data-price="800">В корзину</button>
+                    <button class="btn add-to-cart">В корзину</button>
                 </div>
             </div>
             
-            <div class="product-card" data-category="interior">
-                <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Интерьер" class="product-image">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Светильники" class="product-image">
                 <div class="product-info">
-                    <h3 class="product-title">Элементы интерьера</h3>
-                    <p class="product-price">от 1000 руб.</p>
-                    <p class="product-description">Уникальные детали декора для вашего дома или офиса.</p>
+                    <h3 class="product-title">3D светильники</h3>
+                    <p class="product-price">от 1500 руб.</p>
+                    <p class="product-description">Эффектные светильники с уникальными узорами. Создают уютную атмосферу в интерьере.</p>
                     
                     <div class="color-selector">
-                        <span class="color-option active" style="background-color: #964b00;" data-color="brown"></span>
-                        <span class="color-option" style="background-color: #ffa500;" data-color="orange"></span>
-                        <span class="color-option" style="background-color: #800080;" data-color="purple"></span>
+                        <span class="color-option active" style="background-color: #ffa502;" data-color="yellow"></span>
+                        <span class="color-option" style="background-color: #3742fa;" data-color="blue"></span>
+                        <span class="color-option" style="background-color: #2ed573;" data-color="green"></span>
                     </div>
                     
                     <div class="quantity-selector">
@@ -653,7 +618,53 @@
                         <button class="qty-btn plus">+</button>
                     </div>
                     
-                    <button class="btn add-to-cart" data-product="Элементы интерьера" data-price="1000">В корзину</button>
+                    <button class="btn add-to-cart">В корзину</button>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1581093458799-10452b5e3e6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Автодетали" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Детали для авто</h3>
+                    <p class="product-price">от 1200 руб.</p>
+                    <p class="product-description">Функциональные детали для автомобилей: ручки, кнопки, крепления и декоративные элементы.</p>
+                    
+                    <div class="color-selector">
+                        <span class="color-option active" style="background-color: #2f3542;" data-color="dark"></span>
+                        <span class="color-option" style="background-color: #a4b0be;" data-color="gray"></span>
+                        <span class="color-option" style="background-color: #ffffff; border: 1px solid #ccc;" data-color="white"></span>
+                    </div>
+                    
+                    <div class="quantity-selector">
+                        <button class="qty-btn minus">-</button>
+                        <input type="number" value="1" min="1" class="qty-input">
+                        <button class="qty-btn plus">+</button>
+                    </div>
+                    
+                    <button class="btn add-to-cart">В корзину</button>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1565271914425-1c38ecb58f89?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Необычные изделия" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Необычные изделия</h3>
+                    <p class="product-price">от 1000 руб.</p>
+                    <p class="product-description">Эксклюзивные предметы интерьера, арт-объекты и дизайнерские вещи по вашим эскизам.</p>
+                    
+                    <div class="color-selector">
+                        <span class="color-option active" style="background-color: #ff9ff3;" data-color="pink"></span>
+                        <span class="color-option" style="background-color: #f368e0;" data-color="purple"></span>
+                        <span class="color-option" style="background-color: #00d2d3;" data-color="teal"></span>
+                    </div>
+                    
+                    <div class="quantity-selector">
+                        <button class="qty-btn minus">-</button>
+                        <input type="number" value="1" min="1" class="qty-input">
+                        <button class="qty-btn plus">+</button>
+                    </div>
+                    
+                    <button class="btn add-to-cart">В корзину</button>
                 </div>
             </div>
         </div>
@@ -661,19 +672,19 @@
 
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">О нашей компании</h2>
+            <h2 class="section-title">О компании 3DCub</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>Мы - команда энтузиастов 3D-печати, которая превратила хобби в профессиональное дело. Начав с небольшого принтера в гараже, мы выросли в полноценную мастерскую с современным оборудованием.</p>
+                    <p>3DCub - это команда энтузиастов 3D-печати, которая превратила хобби в профессиональное дело. Мы специализируемся на создании ярких, функциональных и необычных изделий из пластика.</p>
                     <p>Используем только качественные материалы: PLA, ABS, PETG и другие виды пластиков. Каждое изделие проходит контроль качества перед отправкой клиенту.</p>
-                    <p>Мы принимаем индивидуальные заказы и готовы воплотить в жизнь ваши идеи - от простых брелоков до сложных технических деталей.</p>
+                    <p>Мы принимаем индивидуальные заказы и готовы воплотить в жизнь ваши самые смелые идеи - от подвижных игрушек до светильников и автодеталей.</p>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Наша мастерская">
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Наша мастерская">
                 </div>
             </div>
             
-            <h3 class="section-title">Наши преимущества</h3>
+            <h3 class="section-title">Преимущества 3DCub</h3>
             <div class="features">
                 <div class="feature">
                     <i class="fas fa-bolt"></i>
@@ -701,8 +712,20 @@
 
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Свяжитесь с нами</h2>
-            <form class="contact-form" id="contact-form">
+            <h2 class="section-title">Свяжитесь с 3DCub</h2>
+            
+            <div class="phone-numbers">
+                <h3>Наши телефоны</h3>
+                <div class="phone-number">+7 (903) 470-75-70</div>
+                <div class="phone-number">+7 (989) 628-75-70</div>
+            </div>
+            
+            <div class="email-contact">
+                <h3>Электронная почта</h3>
+                <a href="mailto:vxod@list.ru">vxod@list.ru</a>
+            </div>
+            
+            <form class="contact-form">
                 <div class="form-group">
                     <label for="name">Ваше имя</label>
                     <input type="text" id="name" placeholder="Иван Иванов" required>
@@ -724,299 +747,103 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>3DCUB</h3>
-                    <p>Качественные изделия из пластика на 3D принтере</p>
+                    <h3>3DCub</h3>
+                    <p>Яркие и функциональные изделия из пластика на 3D принтере</p>
                 </div>
                 <div class="footer-section">
                     <h3>Контакты</h3>
-                    <p>Email: vxo@list.ru</p>
                     <p>Телефон: +7 (903) 470-75-70</p>
+                    <p>Телефон: +7 (989) 628-75-70</p>
+                    <p>Email: vxod@list.ru</p>
                 </div>
                 <div class="footer-section">
                     <h3>Мы в соцсетях</h3>
-                    <p>VK | Telegram +7(903) 470-75-70 </p>
+                    <p>VK | Telegram | Instagram</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 3DCUB. Все права защищены.</p>
+                <p>&copy; 2023 3DCub. Все права защищены.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Модальное окно корзины -->
-    <div class="modal" id="cart-modal">
-        <div class="modal-content">
-            <button class="close-modal">&times;</button>
-            <h2>Ваша корзина</h2>
-            <div class="cart-items" id="cart-items">
-                <!-- Товары будут добавляться сюда -->
-                <p class="empty-cart-message">Ваша корзина пуста</p>
-            </div>
-            <div class="cart-total" id="cart-total">
-                Итого: 0 руб.
-            </div>
-            <button class="btn btn-accent" id="checkout-btn">Оформить заказ</button>
-        </div>
-    </div>
-
-    <!-- Уведомление -->
-    <div class="notification" id="notification">
-        Товар добавлен в корзину!
-    </div>
-
     <script>
-        // Данные корзины
-        let cart = [];
-        let cartCount = 0;
-        
-        // DOM элементы
-        const cartButton = document.getElementById('cart-button');
-        const cartModal = document.getElementById('cart-modal');
-        const closeModal = document.querySelector('.close-modal');
-        const cartItems = document.getElementById('cart-items');
-        const cartTotal = document.getElementById('cart-total');
-        const checkoutBtn = document.getElementById('checkout-btn');
-        const notification = document.getElementById('notification');
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const productCards = document.querySelectorAll('.product-card');
-        
-        // Инициализация
-        document.addEventListener('DOMContentLoaded', function() {
-            initCart();
-            setupEventListeners();
+        // Простая функциональность корзины
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const countElement = document.querySelector('.cart-count');
+                let count = parseInt(countElement.textContent);
+                count++;
+                countElement.textContent = count;
+                
+                // Анимация добавления
+                this.textContent = 'Добавлено!';
+                this.style.backgroundColor = 'var(--success)';
+                setTimeout(() => {
+                    this.textContent = 'В корзину';
+                    this.style.backgroundColor = 'var(--primary)';
+                }, 1500);
+            });
         });
         
-        // Инициализация корзины
-        function initCart() {
-            // Загрузка корзины из localStorage, если есть
-            const savedCart = localStorage.getItem('3dplast_cart');
-            if (savedCart) {
-                cart = JSON.parse(savedCart);
-                updateCartCount();
-                updateCartModal();
-            }
-        }
+        // Обработка формы
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
+            this.reset();
+        });
         
-        // Настройка обработчиков событий
-        function setupEventListeners() {
-            // Добавление в корзину
-            document.querySelectorAll('.add-to-cart').forEach(button => {
-                button.addEventListener('click', function() {
-                    const productCard = this.closest('.product-card');
-                    const productName = this.getAttribute('data-product');
-                    const basePrice = parseInt(this.getAttribute('data-price'));
-                    const quantity = parseInt(productCard.querySelector('.qty-input').value);
-                    const selectedColor = productCard.querySelector('.color-option.active').getAttribute('data-color');
-                    
-                    addToCart(productName, basePrice, quantity, selectedColor);
-                    showNotification('Товар добавлен в корзину!');
+        // Выбор цвета
+        document.querySelectorAll('.color-option').forEach(option => {
+            option.addEventListener('click', function() {
+                this.parentElement.querySelectorAll('.color-option').forEach(opt => {
+                    opt.classList.remove('active');
                 });
+                this.classList.add('active');
             });
-            
-            // Открытие/закрытие корзины
-            cartButton.addEventListener('click', openCartModal);
-            closeModal.addEventListener('click', closeCartModal);
-            
-            // Клик вне модального окна
-            window.addEventListener('click', function(event) {
-                if (event.target === cartModal) {
-                    closeCartModal();
-                }
-            });
-            
-            // Оформление заказа
-            checkoutBtn.addEventListener('click', checkout);
-            
-            // Фильтрация товаров
-            filterButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const filter = this.getAttribute('data-filter');
-                    
-                    // Обновляем активную кнопку
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    // Фильтруем товары
-                    filterProducts(filter);
-                });
-            });
-            
-            // Обработка формы обратной связи
-            document.getElementById('contact-form').addEventListener('submit', function(e) {
-                e.preventDefault();
-                this.reset();
-                showNotification('Сообщение отправлено! Мы свяжемся с вами в ближайшее время.');
-            });
-            
-            // Выбор цвета
-            document.querySelectorAll('.color-option').forEach(option => {
-                option.addEventListener('click', function() {
-                    this.parentElement.querySelectorAll('.color-option').forEach(opt => {
-                        opt.classList.remove('active');
-                    });
-                    this.classList.add('active');
-                });
-            });
-            
-            // Управление количеством
-            document.querySelectorAll('.qty-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const input = this.parentElement.querySelector('.qty-input');
-                    let value = parseInt(input.value);
-                    
-                    if (this.classList.contains('minus')) {
-                        if (value > 1) {
-                            input.value = value - 1;
-                        }
-                    } else {
-                        input.value = value + 1;
-                    }
-                });
-            });
-            
-            // Мобильное меню
-            document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-                document.querySelector('nav ul').classList.toggle('show');
-            });
-        }
+        });
         
-        // Добавление товара в корзину
-        function addToCart(name, price, quantity, color) {
-            // Проверяем, есть ли уже такой товар в корзине
-            const existingItemIndex = cart.findIndex(item => 
-                item.name === name && item.color === color
-            );
-            
-            if (existingItemIndex !== -1) {
-                // Если товар уже есть, увеличиваем количество
-                cart[existingItemIndex].quantity += quantity;
-            } else {
-                // Если товара нет, добавляем новый
-                cart.push({
-                    name: name,
-                    price: price,
-                    quantity: quantity,
-                    color: color
-                });
-            }
-            
-            // Сохраняем корзину и обновляем отображение
-            saveCart();
-            updateCartCount();
-            updateCartModal();
-        }
-        
-        // Сохранение корзины в localStorage
-        function saveCart() {
-            localStorage.setItem('3dplast_cart', JSON.stringify(cart));
-        }
-        
-        // Обновление счетчика корзины
-        function updateCartCount() {
-            cartCount = cart.reduce((total, item) => total + item.quantity, 0);
-            document.querySelector('.cart-count').textContent = cartCount;
-        }
-        
-        // Открытие модального окна корзины
-        function openCartModal() {
-            updateCartModal();
-            cartModal.style.display = 'flex';
-        }
-        
-        // Закрытие модального окна корзины
-        function closeCartModal() {
-            cartModal.style.display = 'none';
-        }
-        
-        // Обновление содержимого модального окна корзины
-        function updateCartModal() {
-            if (cart.length === 0) {
-                cartItems.innerHTML = '<p class="empty-cart-message">Ваша корзина пуста</p>';
-                cartTotal.textContent = 'Итого: 0 руб.';
-                checkoutBtn.disabled = true;
-                return;
-            }
-            
-            checkoutBtn.disabled = false;
-            
-            let itemsHTML = '';
-            let total = 0;
-            
-            cart.forEach((item, index) => {
-                const itemTotal = item.price * item.quantity;
-                total += itemTotal;
+        // Управление количеством
+        document.querySelectorAll('.qty-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('.qty-input');
+                let value = parseInt(input.value);
                 
-                itemsHTML += `
-                    <div class="cart-item">
-                        <div>
-                            <h4>${item.name}</h4>
-                            <p>Цвет: ${item.color}, Количество: ${item.quantity}</p>
-                        </div>
-                        <div>
-                            <p>${itemTotal} руб.</p>
-                            <button class="remove-from-cart" data-index="${index}">Удалить</button>
-                        </div>
-                    </div>
-                `;
-            });
-            
-            cartItems.innerHTML = itemsHTML;
-            cartTotal.textContent = `Итого: ${total} руб.`;
-            
-            // Добавляем обработчики для кнопок удаления
-            document.querySelectorAll('.remove-from-cart').forEach(button => {
-                button.addEventListener('click', function() {
-                    const index = parseInt(this.getAttribute('data-index'));
-                    removeFromCart(index);
-                });
-            });
-        }
-        
-        // Удаление товара из корзины
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            saveCart();
-            updateCartCount();
-            updateCartModal();
-        }
-        
-        // Оформление заказа
-        function checkout() {
-            if (cart.length === 0) return;
-            
-            // Здесь может быть код для интеграции с платежной системой
-            alert('Спасибо за заказ! В ближайшее время мы свяжемся с вами для уточнения деталей.');
-            
-            // Очищаем корзину после оформления заказа
-            cart = [];
-            saveCart();
-            updateCartCount();
-            updateCartModal();
-            closeCartModal();
-        }
-        
-        // Показать уведомление
-        function showNotification(message) {
-            notification.textContent = message;
-            notification.classList.add('show');
-            
-            setTimeout(() => {
-                notification.classList.remove('show');
-            }, 3000);
-        }
-        
-        // Фильтрация товаров
-        function filterProducts(filter) {
-            productCards.forEach(card => {
-                if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                    card.style.display = 'block';
+                if (this.classList.contains('minus')) {
+                    if (value > 1) {
+                        input.value = value - 1;
+                    }
                 } else {
-                    card.style.display = 'none';
+                    input.value = value + 1;
                 }
             });
-        }
+        });
+        
+        // Мобильное меню
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+        
+        // Плавная прокрутка
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Закрываем мобильное меню после клика
+                    document.querySelector('nav ul').classList.remove('show');
+                }
+            });
+        });
     </script>
 </body>
 </html>
-
-
