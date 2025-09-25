@@ -498,6 +498,18 @@
             margin-top: 1.5rem;
         }
         
+        .fallback-image {
+            height: 220px;
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
         @media (max-width: 768px) {
             .mobile-menu-btn {
                 display: block;
@@ -576,8 +588,14 @@
     <section id="products" class="container">
         <h2 class="section-title">Наши изделия</h2>
         <div class="products">
+            <!-- Подвижные игрушки -->
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1565271914425-1c38ecb58f89?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Подвижные игрушки" class="product-image">
+                <img src="https://images.unsplash.com/photo-1593115057322-e94b77572f20?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                     alt="Подвижные игрушки" class="product-image"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="fallback-image" style="display: none;">
+                    🎮 Подвижные игрушки
+                </div>
                 <div class="product-info">
                     <h3 class="product-title">Подвижные игрушки</h3>
                     <p class="product-price">от 800 руб.</p>
@@ -599,8 +617,14 @@
                 </div>
             </div>
             
+            <!-- Светильники -->
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Светильники" class="product-image">
+                <img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                     alt="Светильники" class="product-image"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="fallback-image" style="display: none;">
+                    💡 3D светильники
+                </div>
                 <div class="product-info">
                     <h3 class="product-title">3D светильники</h3>
                     <p class="product-price">от 1500 руб.</p>
@@ -622,8 +646,14 @@
                 </div>
             </div>
             
+            <!-- Автодетали -->
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1581093458799-10452b5e3e6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Автодетали" class="product-image">
+                <img src="https://images.unsplash.com/photo-1581093458799-10452b5e3e6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                     alt="Автодетали" class="product-image"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="fallback-image" style="display: none;">
+                    🚗 Детали для авто
+                </div>
                 <div class="product-info">
                     <h3 class="product-title">Детали для авто</h3>
                     <p class="product-price">от 1200 руб.</p>
@@ -645,8 +675,14 @@
                 </div>
             </div>
             
+            <!-- Необычные изделия -->
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Необычные изделия" class="product-image">
+                <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                     alt="Необычные изделия" class="product-image"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="fallback-image" style="display: none;">
+                    🎨 Необычные изделия
+                </div>
                 <div class="product-info">
                     <h3 class="product-title">Необычные изделия</h3>
                     <p class="product-price">от 1000 руб.</p>
@@ -671,8 +707,14 @@
 
         <!-- Дополнительные товары -->
         <div class="products">
+            <!-- Персонализированные сувениры -->
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1598301257982-0cf01499abb2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Сувениры" class="product-image">
+                <img src="https://images.unsplash.com/photo-1565271914425-1c38ecb58f89?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                     alt="Сувениры" class="product-image"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="fallback-image" style="display: none;">
+                    🎁 Персонализированные сувениры
+                </div>
                 <div class="product-info">
                     <h3 class="product-title">Персонализированные сувениры</h3>
                     <p class="product-price">от 600 руб.</p>
@@ -694,8 +736,14 @@
                 </div>
             </div>
             
+            <!-- Технические детали -->
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Технические детали" class="product-image">
+                <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                     alt="Технические детали" class="product-image"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="fallback-image" style="display: none;">
+                    ⚙️ Технические детали
+                </div>
                 <div class="product-info">
                     <h3 class="product-title">Технические детали</h3>
                     <p class="product-price">от 900 руб.</p>
@@ -717,8 +765,14 @@
                 </div>
             </div>
             
+            <!-- Декор для интерьера -->
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Декор для интерьера" class="product-image">
+                <img src="https://images.unsplash.com/photo-1598301257982-0cf01499abb2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                     alt="Декор для интерьера" class="product-image"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="fallback-image" style="display: none;">
+                    🏠 Декор для интерьера
+                </div>
                 <div class="product-info">
                     <h3 class="product-title">Декор для интерьера</h3>
                     <p class="product-price">от 1100 руб.</p>
@@ -740,8 +794,14 @@
                 </div>
             </div>
             
+            <!-- Прототипы -->
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1565271914425-1c38ecb58f89?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Прототипы" class="product-image">
+                <img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                     alt="Прототипы" class="product-image"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="fallback-image" style="display: none;">
+                    🔬 Прототипы и модели
+                </div>
                 <div class="product-info">
                     <h3 class="product-title">Прототипы и модели</h3>
                     <p class="product-price">от 2000 руб.</p>
@@ -775,7 +835,9 @@
                     <p>Мы принимаем индивидуальные заказы и готовы воплотить в жизнь ваши самые смелые идеи - от подвижных игрушек до светильников и автодеталей.</p>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Наша мастерская">
+                    <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="Наша мастерская"
+                         onerror="this.src='https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
                 </div>
             </div>
             
@@ -937,6 +999,20 @@
                     // Закрываем мобильное меню после клика
                     document.querySelector('nav ul').classList.remove('show');
                 }
+            });
+        });
+        
+        // Резервные изображения
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('.product-image');
+            images.forEach(img => {
+                img.onerror = function() {
+                    this.style.display = 'none';
+                    const fallback = this.nextElementSibling;
+                    if (fallback && fallback.classList.contains('fallback-image')) {
+                        fallback.style.display = 'flex';
+                    }
+                };
             });
         });
     </script>
