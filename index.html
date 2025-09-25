@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="3DCub - создаем уникальные изделия из пластика на 3D принтере: игрушки, светильники, автодетали и многое другое">
     <title>3DCub - уникальные изделия из пластика на 3D принтере</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -128,7 +127,7 @@
         }
         
         .hero {
-            background: linear-gradient(rgba(42, 45, 62, 0.8), rgba(42, 45, 62, 0.9)), url('https://images.unsplash.com/photo-1598301257982-0cf01499abb2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            background: linear-gradient(rgba(42, 45, 62, 0.8), rgba(42, 45, 62, 0.9)), url('https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
             color: white;
             padding: 5rem 1rem;
             text-align: center;
@@ -498,111 +497,6 @@
             padding-top: 1.5rem;
             margin-top: 1.5rem;
         }
-
-        /* Стили для модального окна корзины */
-        .cart-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .cart-content {
-            background-color: white;
-            border-radius: 12px;
-            width: 90%;
-            max-width: 600px;
-            max-height: 80vh;
-            overflow-y: auto;
-            padding: 2rem;
-            position: relative;
-        }
-        
-        .close-cart {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 1.5rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: var(--secondary);
-        }
-        
-        .cart-items {
-            margin: 1.5rem 0;
-        }
-        
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .cart-item-info {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .cart-item-image {
-            width: 60px;
-            height: 60px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-        
-        .cart-item-details h4 {
-            margin-bottom: 0.5rem;
-            color: var(--secondary);
-        }
-        
-        .cart-item-details p {
-            color: var(--primary);
-            font-weight: bold;
-        }
-        
-        .cart-item-actions {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .remove-item {
-            background: none;
-            border: none;
-            color: #ff4757;
-            cursor: pointer;
-            font-size: 1.2rem;
-        }
-        
-        .cart-total {
-            text-align: right;
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin: 1.5rem 0;
-            color: var(--secondary);
-        }
-        
-        .checkout-btn {
-            width: 100%;
-            padding: 1rem;
-            font-size: 1.1rem;
-        }
-        
-        .empty-cart {
-            text-align: center;
-            padding: 2rem;
-            color: #666;
-        }
         
         @media (max-width: 768px) {
             .mobile-menu-btn {
@@ -644,16 +538,6 @@
             .section-title {
                 font-size: 1.8rem;
             }
-            
-            .cart-item {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1rem;
-            }
-            
-            .cart-item-actions {
-                align-self: flex-end;
-            }
         }
     </style>
 </head>
@@ -662,7 +546,7 @@
         <div class="container header-content">
             <a href="#" class="logo">3D<span>Cub</span></a>
             
-            <button class="mobile-menu-btn" aria-label="Открыть меню">
+            <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </button>
             
@@ -674,7 +558,7 @@
                     <li><a href="#contact">Контакты</a></li>
                 </ul>
             </nav>
-            <div class="cart-icon" id="cart-icon">
+            <div class="cart-icon">
                 <i class="fas fa-shopping-cart"></i>
                 <span class="cart-count">0</span>
             </div>
@@ -692,9 +576,8 @@
     <section id="products" class="container">
         <h2 class="section-title">Наши изделия</h2>
         <div class="products">
-            <!-- Продукты остаются без изменений -->
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1598301257982-0cf01499abb2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Подвижные игрушки" class="product-image">
+                <img src="https://images.unsplash.com/photo-1565271914425-1c38ecb58f89?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Подвижные игрушки" class="product-image">
                 <div class="product-info">
                     <h3 class="product-title">Подвижные игрушки</h3>
                     <p class="product-price">от 800 руб.</p>
@@ -712,12 +595,173 @@
                         <button class="qty-btn plus">+</button>
                     </div>
                     
-                    <button class="btn add-to-cart" data-product="Подвижные игрушки" data-price="800">В корзину</button>
+                    <button class="btn add-to-cart">В корзину</button>
                 </div>
             </div>
             
-            <!-- Остальные продукты с аналогичными изменениями в кнопке добавления в корзину -->
-            <!-- ... -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Светильники" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">3D светильники</h3>
+                    <p class="product-price">от 1500 руб.</p>
+                    <p class="product-description">Эффектные светильники с уникальными узорами. Создают уютную атмосферу в интерьере.</p>
+                    
+                    <div class="color-selector">
+                        <span class="color-option active" style="background-color: #ffa502;" data-color="yellow"></span>
+                        <span class="color-option" style="background-color: #3742fa;" data-color="blue"></span>
+                        <span class="color-option" style="background-color: #2ed573;" data-color="green"></span>
+                    </div>
+                    
+                    <div class="quantity-selector">
+                        <button class="qty-btn minus">-</button>
+                        <input type="number" value="1" min="1" class="qty-input">
+                        <button class="qty-btn plus">+</button>
+                    </div>
+                    
+                    <button class="btn add-to-cart">В корзину</button>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1581093458799-10452b5e3e6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Автодетали" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Детали для авто</h3>
+                    <p class="product-price">от 1200 руб.</p>
+                    <p class="product-description">Функциональные детали для автомобилей: ручки, кнопки, крепления и декоративные элементы.</p>
+                    
+                    <div class="color-selector">
+                        <span class="color-option active" style="background-color: #2f3542;" data-color="dark"></span>
+                        <span class="color-option" style="background-color: #a4b0be;" data-color="gray"></span>
+                        <span class="color-option" style="background-color: #ffffff; border: 1px solid #ccc;" data-color="white"></span>
+                    </div>
+                    
+                    <div class="quantity-selector">
+                        <button class="qty-btn minus">-</button>
+                        <input type="number" value="1" min="1" class="qty-input">
+                        <button class="qty-btn plus">+</button>
+                    </div>
+                    
+                    <button class="btn add-to-cart">В корзину</button>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Необычные изделия" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Необычные изделия</h3>
+                    <p class="product-price">от 1000 руб.</p>
+                    <p class="product-description">Эксклюзивные предметы интерьера, арт-объекты и дизайнерские вещи по вашим эскизам.</p>
+                    
+                    <div class="color-selector">
+                        <span class="color-option active" style="background-color: #ff9ff3;" data-color="pink"></span>
+                        <span class="color-option" style="background-color: #f368e0;" data-color="purple"></span>
+                        <span class="color-option" style="background-color: #00d2d3;" data-color="teal"></span>
+                    </div>
+                    
+                    <div class="quantity-selector">
+                        <button class="qty-btn minus">-</button>
+                        <input type="number" value="1" min="1" class="qty-input">
+                        <button class="qty-btn plus">+</button>
+                    </div>
+                    
+                    <button class="btn add-to-cart">В корзину</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Дополнительные товары -->
+        <div class="products">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1598301257982-0cf01499abb2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Сувениры" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Персонализированные сувениры</h3>
+                    <p class="product-price">от 600 руб.</p>
+                    <p class="product-description">Индивидуальные сувениры с вашим логотипом или надписью. Идеально для подарков.</p>
+                    
+                    <div class="color-selector">
+                        <span class="color-option active" style="background-color: #ff6b35;" data-color="orange"></span>
+                        <span class="color-option" style="background-color: #00c2cb;" data-color="cyan"></span>
+                        <span class="color-option" style="background-color: #2ed573;" data-color="green"></span>
+                    </div>
+                    
+                    <div class="quantity-selector">
+                        <button class="qty-btn minus">-</button>
+                        <input type="number" value="1" min="1" class="qty-input">
+                        <button class="qty-btn plus">+</button>
+                    </div>
+                    
+                    <button class="btn add-to-cart">В корзину</button>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Технические детали" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Технические детали</h3>
+                    <p class="product-price">от 900 руб.</p>
+                    <p class="product-description">Функциональные детали для техники, механизмов и бытовых приборов.</p>
+                    
+                    <div class="color-selector">
+                        <span class="color-option active" style="background-color: #a4b0be;" data-color="gray"></span>
+                        <span class="color-option" style="background-color: #2f3542;" data-color="dark"></span>
+                        <span class="color-option" style="background-color: #ffffff; border: 1px solid #ccc;" data-color="white"></span>
+                    </div>
+                    
+                    <div class="quantity-selector">
+                        <button class="qty-btn minus">-</button>
+                        <input type="number" value="1" min="1" class="qty-input">
+                        <button class="qty-btn plus">+</button>
+                    </div>
+                    
+                    <button class="btn add-to-cart">В корзину</button>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Декор для интерьера" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Декор для интерьера</h3>
+                    <p class="product-price">от 1100 руб.</p>
+                    <p class="product-description">Уникальные элементы декора для вашего дома или офиса. Создайте неповторимый стиль.</p>
+                    
+                    <div class="color-selector">
+                        <span class="color-option active" style="background-color: #ff9ff3;" data-color="pink"></span>
+                        <span class="color-option" style="background-color: #f368e0;" data-color="purple"></span>
+                        <span class="color-option" style="background-color: #ffa502;" data-color="yellow"></span>
+                    </div>
+                    
+                    <div class="quantity-selector">
+                        <button class="qty-btn minus">-</button>
+                        <input type="number" value="1" min="1" class="qty-input">
+                        <button class="qty-btn plus">+</button>
+                    </div>
+                    
+                    <button class="btn add-to-cart">В корзину</button>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1565271914425-1c38ecb58f89?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Прототипы" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Прототипы и модели</h3>
+                    <p class="product-price">от 2000 руб.</p>
+                    <p class="product-description">Создание прототипов и моделей для дизайнеров, инженеров и изобретателей.</p>
+                    
+                    <div class="color-selector">
+                        <span class="color-option active" style="background-color: #00c2cb;" data-color="cyan"></span>
+                        <span class="color-option" style="background-color: #3742fa;" data-color="blue"></span>
+                        <span class="color-option" style="background-color: #2f3542;" data-color="dark"></span>
+                    </div>
+                    
+                    <div class="quantity-selector">
+                        <button class="qty-btn minus">-</button>
+                        <input type="number" value="1" min="1" class="qty-input">
+                        <button class="qty-btn plus">+</button>
+                    </div>
+                    
+                    <button class="btn add-to-cart">В корзину</button>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -731,7 +775,7 @@
                     <p>Мы принимаем индивидуальные заказы и готовы воплотить в жизнь ваши самые смелые идеи - от подвижных игрушек до светильников и автодеталей.</p>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Наша мастерская">
+                    <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Наша мастерская">
                 </div>
             </div>
             
@@ -776,7 +820,7 @@
                 <a href="mailto:vxod@list.ru">vxod@list.ru</a>
             </div>
             
-            <form class="contact-form" id="contact-form">
+            <form class="contact-form">
                 <div class="form-group">
                     <label for="name">Ваше имя</label>
                     <input type="text" id="name" placeholder="Иван Иванов" required>
@@ -793,20 +837,6 @@
             </form>
         </div>
     </section>
-
-    <!-- Модальное окно корзины -->
-    <div class="cart-modal" id="cart-modal">
-        <div class="cart-content">
-            <button class="close-cart" id="close-cart">&times;</button>
-            <h2>Корзина</h2>
-            <div class="cart-items" id="cart-items">
-                <!-- Товары будут добавляться сюда динамически -->
-                <div class="empty-cart">Ваша корзина пуста</div>
-            </div>
-            <div class="cart-total" id="cart-total">Итого: 0 руб.</div>
-            <button class="btn checkout-btn" id="checkout-btn">Оформить заказ</button>
-        </div>
-    </div>
 
     <footer>
         <div class="container">
@@ -833,209 +863,63 @@
     </footer>
 
     <script>
-        // Мобильное меню
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navMenu = document.querySelector('nav ul');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('show');
-        });
-        
-        // Функционал корзины
-        const cartIcon = document.getElementById('cart-icon');
-        const cartModal = document.getElementById('cart-modal');
-        const closeCart = document.getElementById('close-cart');
-        const cartItems = document.getElementById('cart-items');
-        const cartTotal = document.getElementById('cart-total');
-        const cartCount = document.querySelector('.cart-count');
-        const checkoutBtn = document.getElementById('checkout-btn');
-        
-        let cart = [];
-        
-        // Открытие/закрытие корзины
-        cartIcon.addEventListener('click', () => {
-            cartModal.style.display = 'flex';
-        });
-        
-        closeCart.addEventListener('click', () => {
-            cartModal.style.display = 'none';
-        });
-        
-        // Закрытие корзины при клике вне её области
-        window.addEventListener('click', (e) => {
-            if (e.target === cartModal) {
-                cartModal.style.display = 'none';
-            }
-        });
-        
-        // Добавление товара в корзину
+        // Простая функциональность корзины
         document.querySelectorAll('.add-to-cart').forEach(button => {
-            button.addEventListener('click', (e) => {
-                const productCard = e.target.closest('.product-card');
-                const productTitle = productCard.querySelector('.product-title').textContent;
-                const productPrice = parseInt(e.target.getAttribute('data-price'));
-                const productImage = productCard.querySelector('.product-image').src;
-                const quantity = parseInt(productCard.querySelector('.qty-input').value);
-                const selectedColor = productCard.querySelector('.color-option.active').getAttribute('data-color');
+            button.addEventListener('click', function() {
+                const countElement = document.querySelector('.cart-count');
+                let count = parseInt(countElement.textContent);
+                count++;
+                countElement.textContent = count;
                 
-                // Проверяем, есть ли товар уже в корзине
-                const existingItemIndex = cart.findIndex(item => 
-                    item.title === productTitle && item.color === selectedColor
-                );
-                
-                if (existingItemIndex !== -1) {
-                    // Если товар уже есть, увеличиваем количество
-                    cart[existingItemIndex].quantity += quantity;
-                } else {
-                    // Если товара нет, добавляем новый
-                    cart.push({
-                        title: productTitle,
-                        price: productPrice,
-                        image: productImage,
-                        quantity: quantity,
-                        color: selectedColor
-                    });
-                }
-                
-                updateCart();
-                showNotification('Товар добавлен в корзину!');
-            });
-        });
-        
-        // Обновление корзины
-        function updateCart() {
-            // Очищаем содержимое корзины
-            cartItems.innerHTML = '';
-            
-            if (cart.length === 0) {
-                cartItems.innerHTML = '<div class="empty-cart">Ваша корзина пуста</div>';
-                cartTotal.textContent = 'Итого: 0 руб.';
-                cartCount.textContent = '0';
-                return;
-            }
-            
-            // Добавляем товары в корзину
-            let total = 0;
-            cart.forEach((item, index) => {
-                total += item.price * item.quantity;
-                
-                const cartItem = document.createElement('div');
-                cartItem.className = 'cart-item';
-                cartItem.innerHTML = `
-                    <div class="cart-item-info">
-                        <img src="${item.image}" alt="${item.title}" class="cart-item-image">
-                        <div class="cart-item-details">
-                            <h4>${item.title}</h4>
-                            <p>${item.price} руб. x ${item.quantity}</p>
-                            <p>Цвет: ${item.color}</p>
-                        </div>
-                    </div>
-                    <div class="cart-item-actions">
-                        <button class="remove-item" data-index="${index}">
-                            <i class="fas fa-trash"></i>
-                        </button>
-                    </div>
-                `;
-                
-                cartItems.appendChild(cartItem);
-            });
-            
-            // Обновляем итоговую сумму и счетчик
-            cartTotal.textContent = `Итого: ${total} руб.`;
-            cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
-            
-            // Добавляем обработчики событий для кнопок удаления
-            document.querySelectorAll('.remove-item').forEach(button => {
-                button.addEventListener('click', (e) => {
-                    const index = parseInt(e.currentTarget.getAttribute('data-index'));
-                    cart.splice(index, 1);
-                    updateCart();
-                });
-            });
-        }
-        
-        // Оформление заказа
-        checkoutBtn.addEventListener('click', () => {
-            if (cart.length === 0) {
-                alert('Ваша корзина пуста!');
-                return;
-            }
-            
-            alert('Заказ оформлен! С вами свяжутся для уточнения деталей.');
-            cart = [];
-            updateCart();
-            cartModal.style.display = 'none';
-        });
-        
-        // Уведомление о добавлении в корзину
-        function showNotification(message) {
-            const notification = document.createElement('div');
-            notification.style.cssText = `
-                position: fixed;
-                top: 100px;
-                right: 20px;
-                background-color: var(--success);
-                color: white;
-                padding: 1rem 1.5rem;
-                border-radius: 8px;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-                z-index: 1001;
-                transition: opacity 0.3s;
-            `;
-            notification.textContent = message;
-            document.body.appendChild(notification);
-            
-            setTimeout(() => {
-                notification.style.opacity = '0';
+                // Анимация добавления
+                this.textContent = 'Добавлено!';
+                this.style.backgroundColor = 'var(--success)';
                 setTimeout(() => {
-                    document.body.removeChild(notification);
-                }, 300);
-            }, 2000);
-        }
+                    this.textContent = 'В корзину';
+                    this.style.backgroundColor = 'var(--primary)';
+                }, 1500);
+            });
+        });
         
-        // Функционал выбора цвета
+        // Обработка формы
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
+            this.reset();
+        });
+        
+        // Выбор цвета
         document.querySelectorAll('.color-option').forEach(option => {
-            option.addEventListener('click', (e) => {
-                const parent = e.target.closest('.color-selector');
-                parent.querySelectorAll('.color-option').forEach(opt => {
+            option.addEventListener('click', function() {
+                this.parentElement.querySelectorAll('.color-option').forEach(opt => {
                     opt.classList.remove('active');
                 });
-                e.target.classList.add('active');
+                this.classList.add('active');
             });
         });
         
-        // Функционал изменения количества
-        document.querySelectorAll('.qty-btn').forEach(button => {
-            button.addEventListener('click', (e) => {
-                const input = e.target.closest('.quantity-selector').querySelector('.qty-input');
+        // Управление количеством
+        document.querySelectorAll('.qty-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('.qty-input');
                 let value = parseInt(input.value);
                 
-                if (e.target.classList.contains('plus')) {
-                    value++;
-                } else if (e.target.classList.contains('minus') && value > 1) {
-                    value--;
+                if (this.classList.contains('minus')) {
+                    if (value > 1) {
+                        input.value = value - 1;
+                    }
+                } else {
+                    input.value = value + 1;
                 }
-                
-                input.value = value;
             });
         });
         
-        // Обработка формы обратной связи
-        const contactForm = document.getElementById('contact-form');
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            // Здесь должна быть логика отправки формы на сервер
-            // Для демонстрации просто покажем уведомление
-            alert(`Спасибо, ${name}! Ваше сообщение отправлено. Мы свяжемся с вами в ближайшее время.`);
-            contactForm.reset();
+        // Мобильное меню
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
         });
         
-        // Плавная прокрутка к якорям
+        // Плавная прокрутка
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1051,9 +935,7 @@
                     });
                     
                     // Закрываем мобильное меню после клика
-                    if (navMenu.classList.contains('show')) {
-                        navMenu.classList.remove('show');
-                    }
+                    document.querySelector('nav ul').classList.remove('show');
                 }
             });
         });
